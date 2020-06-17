@@ -2,10 +2,10 @@ require_relative "#{Dir.pwd}/services/csv/open_files"
 
 describe Services::CSV::OpenFiles do
   describe '#csv_files' do
-    let(:file_paths) { ["spec/fixtures/acc.csv", "spec/fixtures/trans.csv"] }
+    let(:file_paths) { ["#{CSV_FIXTURE_DIR}/acc_valid.csv", "#{CSV_FIXTURE_DIR}/trans_valid.csv"] }
 
     context 'returns two csv files' do
-      let(:files_array) { file_paths.map { |file_name| File.open("#{Dir.pwd}/#{file_name}") } }
+      let(:files_array) { file_paths.map { |file_path| File.open(file_path) } }
       subject { described_class.call(file_paths) }
 
       it 'Returns two CSV objects' do
