@@ -1,18 +1,24 @@
-require_relative '../../services/open_files'
+require_relative "#{Dir.pwd}/services/csv/open_files"
 
-describe Services::OpenFiles do
+describe Services::CSV::OpenFiles do
   describe '#csv_files' do
     let(:file_paths) { ["spec/fixtures/acc.csv", "spec/fixtures/trans.csv"] }
 
     context 'returns two csv files' do
       let(:files_array) { file_paths.map { |file_name| File.open("#{Dir.pwd}/#{file_name}") } }
-      subject { described_class.new(file_paths).csv_files.count }
+      subject { described_class.call(file_paths) }
 
-      it { is_expected.to eq 2 }
+      it 'Returns two CSV objects' do
+        expect(subject.count).to eq 2
+      end
+
+      it 'Returns a CSV object' do
+        expect(subject.first.class).to eq CSV
+      end
     end
 
     describe 'halt the app if' do
-      subject { described_class.new(file_path).csv_files }
+      subject { described_class.call(file_path) }
 
       context 'if dont find 2 files' do
         let(:file_path) { [file_paths[0]] }
