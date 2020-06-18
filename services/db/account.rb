@@ -17,18 +17,24 @@ module Services
           self[id]
         end
 
-        def upsert(id: id, balance: balance)
+        def upsert(id:, balance:)
           accounts_db.
             insert_conflict(target: :id, update: { balance: balance }).
             insert(id: id, balance: balance)
         end
 
-        def safe_upsert(id: id, balance: balance)
+        def safe_upsert(id:, balance:)
           if get(id)
             upsert(id: id, balance: balance)
           else
-            print_account_not_found_to_update_error(id)
+            p system_close_message
+            p account_not_found_to_update_error(id)
+            exit_app
           end
+        end
+
+        def all_ordered
+          self.order(:id).all
         end
 
         def accounts_db
