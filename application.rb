@@ -6,7 +6,9 @@ class Application
 
   def initialize
     connect_db
+    run_migrations
     start_app
+    clean_db
   end
 
   def connect_db
@@ -17,6 +19,14 @@ class Application
       p database_conn_error
       exit_app
     end
+  end
+
+  def run_migrations
+    `sequel -m db/migrate/ postgres://localhost/amc`
+  end
+
+  def clean_db
+    $db[:accounts].delete
   end
 
   def start_app

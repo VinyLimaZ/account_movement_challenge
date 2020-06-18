@@ -12,7 +12,7 @@ module Services
       def initialize; end
 
       def call
-        print_account_info(Services::DB::Account.all)
+        print_account_info(Services::DB::Account.all_ordered)
       end
 
       private

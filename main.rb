@@ -48,7 +48,6 @@ class Main
   def close_files(account_csv, transaction_csv)
     account_csv.close
     transaction_csv.close
-    exit_app
   end
 end
 

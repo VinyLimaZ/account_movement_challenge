@@ -33,6 +33,10 @@ module Services
           end
         end
 
+        def all_ordered
+          self.order(:id).all
+        end
+
         def accounts_db
           $db[:accounts]
         end
