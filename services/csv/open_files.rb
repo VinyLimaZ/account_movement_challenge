@@ -23,12 +23,12 @@ module Services
         csv_file_paths.map do |file_name|
           ::CSV.open("#{Dir.pwd}/#{file_name}")
         rescue Errno::ENOENT
-          print_error_open_file(file_name) and exit_app
+          p error_open_file(file_name) and exit_app
         end
       end
 
       def count_files(csv_files)
-        print_error_wrong_number_files and exit_app if csv_files.size != 2
+        p error_wrong_number_files and exit_app if csv_files.size != 2
       end
     end
   end

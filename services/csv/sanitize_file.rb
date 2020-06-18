@@ -12,7 +12,7 @@ module Services
       def initialize; end
 
       def call(csv_file)
-        print_wrong_file_type_error and exit_app if csv_file.class != ::CSV
+        p wrong_file_type_error and exit_app if csv_file.class != ::CSV
         sanitize_file(csv_file.read)
       end
 
