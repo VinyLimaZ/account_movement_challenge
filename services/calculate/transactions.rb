@@ -1,4 +1,4 @@
-require_relative "#{ROOT_DIR}/services/db/account"
+require_relative "#{Dir.pwd}/services/db/account"
 
 module Services
   module Calculate

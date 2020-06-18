@@ -1,5 +1,5 @@
 require 'sequel'
-require_relative "#{ROOT_DIR}/app/concerns/errors"
+require_relative "#{Dir.pwd}/app/concerns/errors"
 
 module Services
   module DB
