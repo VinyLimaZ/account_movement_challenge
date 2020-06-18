@@ -1,5 +1,7 @@
 require 'Sequel'
 
+ROOT_DIR = Dir.pwd
+
 class Application
   def initialize
     connect_db

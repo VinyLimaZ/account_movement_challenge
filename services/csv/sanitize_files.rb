@@ -1,9 +1,9 @@
-require_relative "#{Dir.pwd}/app/concerns/errors"
+require_relative "#{ROOT_DIR}/app/concerns/errors"
 
 module Services
   module CSV
     class SanitizeFiles
-      include ::App::Errors
+      include Errors
 
       def self.call(csv_files)
         new.call(csv_files)
@@ -54,7 +54,7 @@ module Services
       end
 
       def invalid_cell?(row)
-        row[0] < 1 || row[1].zero?
+        row[0] < 1
       end
     end
   end
