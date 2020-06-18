@@ -1,4 +1,4 @@
-require_relative "#{Dir.pwd}/services/csv/open_files"
+require_relative "#{ROOT_DIR}/services/csv/open_files"
 
 describe Services::CSV::OpenFiles do
   describe '#csv_files' do

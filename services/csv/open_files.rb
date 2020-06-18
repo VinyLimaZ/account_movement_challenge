@@ -1,10 +1,10 @@
 require 'csv'
-require_relative "#{Dir.pwd}/app/concerns/errors"
+require_relative "#{ROOT_DIR}/app/concerns/errors"
 
 module Services
   module CSV
     class OpenFiles
-      include ::App::Errors
+      include Errors
 
       def self.call(cli_args)
         new.call(cli_args)
@@ -21,7 +21,7 @@ module Services
 
       def open(csv_file_paths)
         csv_file_paths.map do |file_name|
-          ::CSV.open("#{Dir.pwd}/#{file_name}")
+          ::CSV.open("#{ROOT_DIR}/#{file_name}")
         rescue Errno::ENOENT
           print_error_open_file(file_name) and exit_app
         end

@@ -1,4 +1,4 @@
-require_relative "#{Dir.pwd}/services/db/account"
+require_relative "#{ROOT_DIR}/services/db/account"
 
 describe Services::DB::Account do
   describe '.upsert_all' do

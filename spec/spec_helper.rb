@@ -4,6 +4,7 @@ require 'database_cleaner'
 `sequel -m db/migrate/ postgres://localhost/amc_test`
 
 CSV_FIXTURE_DIR = "./spec/fixtures/csv"
+ROOT_DIR = Dir.pwd
 
 $db = Sequel.connect(adapter: :postgres, database: 'amc_test', host: 'localhost')
 DatabaseCleaner[:sequel].db = $db
