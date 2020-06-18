@@ -1,5 +1,5 @@
 require 'csv'
-require_relative "#{Dir.pwd}/app/errors"
+require_relative "#{Dir.pwd}/app/concerns/errors"
 
 module Services
   module CSV
