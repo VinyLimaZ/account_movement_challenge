@@ -23,6 +23,14 @@ module Services
             insert(id: id, balance: balance)
         end
 
+        def safe_upsert(id: id, balance: balance)
+          if get(id)
+            upsert(id: id, balance: balance)
+          else
+            print_account_not_found_to_update_error(id)
+          end
+        end
+
         def accounts_db
           $db[:accounts]
         end
