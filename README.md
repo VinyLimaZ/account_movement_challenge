@@ -1,3 +1,54 @@
+# README
+
+## What are all this sheeet?
+
+Hello guys, I'm Vinicius and that's my solution to the problem you
+brought to me :D
+
+## Dependencies Versions
+* Ruby version
+2.6.6
+* Postgres
+12.3
+
+# How to run?
+
+- You'll need to install ruby and postgres on you machine;
+- With the postgres installed run the command `createdb amc`
+- Run `bundle install`
+- The app do this, but if you find some errors with the database, run:
+- - `sequel -m db/migrate/ postgres://localhost/amc`
+- Finally: `ruby application.rb ACCOUNT_CSV_FILE TRANSACTIONS_CSV_FILE`
+- - The system will try to pick this files on the application root directory, if
+    is not there, navigate with unix [`points`](https://swcarpentry.github.io/shell-novice/02-filedir/index.html)!
+
+# Do you want some specs?
+- Run `sequel -m db/migrate/ postgres://localhost/amc_test` to create the test
+    database
+- Run `rspec`
+
+## Some points about my solution:
+
+- I tried to create an app without the rails, because it's a CLI app;
+- I made following some SOLID rules and putting efforts in a modular
+    application;
+- I made some assumptions of the business rules to avoid lose time, but that's
+    something that I really don't like to do on work, I start a task only if I
+    had fully understand and I don't have nothing blocking me;
+- I used the sequel to avoid bring things from Rails and to have a opportunity
+    to use it (I never used it lol).
+
+==============================================================
+
+Enjoy and hire me, please (͡ ° ͜ʖ ͡ °)
+
+==============================================================
+
+
+
+
+
+
 # Desafio de Movimentação de Contas
 ## Objetivo
 Desenvolver uma aplicação em linha de comando, em Ruby, que calcule o balanço da conta corrente dos clientes.
